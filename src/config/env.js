@@ -7,15 +7,25 @@
  * 
  */
 
-let baseUrl = ''; 
+;
+(function (global) {
+	global.baseUrl = "https://ali-mp.zhongan.com/mini/";
+	global.imgBaseUrl = 'https://dev-cdn.zhongan.com/a00000/frontend/test/static/img/';
+	//global.baseUrl = "https://dev-ali-mp.zhongan.com/mini/developer/wangmanzhe/";
+	if (location.href.indexOf('dev-') > -1) {
+		global.baseUrl = "https://dev-ali-mp.zhongan.com/mini/developer/wangmanzhe/";
+	} else if (location.href.indexOf('uat-') > -1) {
+		global.baseUrl = "https://dev-ali-mp.zhongan.com/mini/developer/wangmanzhe/";
+	} else {
+		//global.baseUrl = "https://dev-ali-mp.zhongan.com/mini/developer/wangmanzhe/";
+		global.baseUrl = "https://dev-ali-mp.zhongan.com/mini/developer/wangmanzhe/";
+	}
+})(window);
+
 let routerMode = 'history';
-let imgBaseUrl = 'http://images.cangdu.org/';
-
-
 if (process.env.NODE_ENV == 'development') {
 
 }else if(process.env.NODE_ENV == 'production'){
-
 	// baseUrl = 'http://cangdu.org:8001';
 }
 
